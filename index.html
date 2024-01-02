@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title> JS5 assignment Route Friday 3:30 Ahmed Gamal Albazawy </title>
+   <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+  </head>
+
+
+
+<body class="position-relative">
+
+  <div class="px-5">
+
+    <nav class="p-5 navbar navbar-expand-lg navbar-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" class="w-50 float-end" alt="logo"></a>
+        <div class="headline">
+
+          <h1 class="justify-content-center">Weather</h1>
+
+        </div>
+
+
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" collapse navbar-collapse d-flex main-navigation" id="navbarSupportedContent">
+          <ul class=" menu me-2 navbar-nav  me-auto mb-2 mb-lg-0 w-100 justify-content-end">
+            <li class="nav-item menu-item h6 p-1">
+              <a class="nav-link active " aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item menu-item h6 p-1">
+              <a class="nav-link  " aria-current="page" href="#">News</a>
+            </li>
+            <li class="nav-item menu-item h6 p-1">
+              <a class="nav-link  " aria-current="page" href="#">Live Cameras</a>
+            </li>
+            <li class="nav-item menu-item h6 p-1">
+              <a class="nav-link  " aria-current="page" href="#">Photos</a>
+            </li>
+            <li class="nav-item menu-item h6 p-1">
+              <a class="nav-link  " aria-current="page" href="#">Contact</a>
+            </li>
+        
+            
+           
+          </ul>
+        
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+
+			<div class="hero" data-bg-image="assets/img/banner.jpg" style="background-image: url(&quot;assets/img/banner.jpg&quot;);">
+				<div class="container pb-md-5">
+					<div class="find-location">
+						<input type="text" placeholder="Find your location..." id="location-search" class="text-center" >
+						<!-- <input type="button" class="btn btn-info" value="Find" id="find-location"> -->
+					<table id="table" class="text-center table position-relative  table-dark table-responsive-lg w-75 mx-auto">
+            <thead class="d-none">
+              
+                <td>Serial</td>
+                <td>Location</td>
+                <td>Command</td>
+            
+            </thead>
+            <tbody id="result-table" class="text-s">
+    
+            </tbody>
+          </table>
+          
+          </div>
+
+				</div>
+			</div>
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container" id="forecast"><div class="today forecast">
+    <div class="forecast-header" id="today">
+    <div class="day">Monday</div>
+    <div class=" date">1January</div>
+    </div> 
+    <div class="forecast-content" id="current">
+    <div class="location">Cairo</div>
+    <div class="degree">
+        <div class="display-5 py-3">15.5<sup> o</sup>C</div>
+      
+        <div class=" forecast-icon">
+            <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="90">
+        </div>	
+    
+    </div>
+    <div class="custom">Sunny</div>
+    <span><img src="./assets/img/icon-umberella.png" alt="">20%</span>
+								<span><img src="./assets/img/icon-wind.png" alt="">18km/h</span>
+								<span><img src="./assets/img/icon-compass.png" alt="">East</span>
+    </div>
+</div>	<div class="forecast">
+        <div class="forecast-header">
+            <div class="day">Tuesday</div>
+        </div> <!-- .forecast-header -->
+        <div class="forecast-content">
+            <div class="forecast-icon">
+                <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="48">
+            </div>
+            <div class="degree">21.1<sup> o</sup>C</div>
+            <small>13.9<sup> o</sup></small>
+            <div class="custom">Sunny</div>
+        </div>
+        </div>	<div class="forecast">
+        <div class="forecast-header">
+            <div class="day">Wednesday</div>
+        </div> <!-- .forecast-header -->
+        <div class="forecast-content">
+            <div class="forecast-icon">
+                <img src="https://cdn.weatherapi.com/weather/64x64/day/122.png" alt="" width="48">
+            </div>
+            <div class="degree">20.5<sup> o</sup>C</div>
+            <small>14.3<sup> o</sup></small>
+            <div class="custom">Overcast</div>
+        </div>
+        </div></div>
+				</div>
+			</div>
+	
+			
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+							<form action="#" class="subscribe-form">
+								<input type="text" placeholder="Enter your email to subscribe...">
+								<input type="submit" value="Subscribe">
+							</form>
+						</div>
+						<div class="col-md-3 col-md-offset-1">
+							<div class="social-links">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+								<a href="#"><i class="fa fa-pinterest"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+				</div>
+			</footer> <!-- .site-footer -->
+		
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+  </body>
+</html>
