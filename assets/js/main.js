@@ -4,7 +4,7 @@ const table = document.querySelector("#table");
 
 async function getLocations(text) {
   fetch(
-    `http://api.weatherapi.com/v1/search.json?key=d0fda70a3b8249b194a72202240101&q=${text}`
+    `https://api.weatherapi.com/v1/search.json?key=d0fda70a3b8249b194a72202240101&q=${text}`
   )
     .then((response) => response.json())
     .then((data) => {
