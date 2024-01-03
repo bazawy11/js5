@@ -1,6 +1,63 @@
+const DAY_NAME_OF_WEEK_LONG = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
 const locationSearch = document.querySelector("#location-search");
 const searchTable = document.querySelector("#result-table");
 const table = document.querySelector("#table");
+
+// ===================================================
+// ===================================================
+// ===================================================
+// ===================================================
+// ===================================================
+// ==========
+// today
+// ==========
+
+let city = document.querySelector("#today_city");
+let todayTemp = document.querySelector("#today_temp");
+let todayDay = document.querySelector("#today_day");
+let todayDate = document.querySelector("#today_date");
+let todayConditionImg = document.querySelector("#today_condition_icon");
+let todayConditionText = document.querySelector("#today_condition_text");
+let todayRain = document.querySelector("#rain_precentage");
+let todayWind = document.querySelector("#wind_speed");
+let todayWindDegree = document.querySelector("#wind_dir");
+
+// ==========
+// tommorow
+// ==========
+
+let tommorowDay = document.querySelector("#tommorrow_day");
+let tommorowMaxTemp = document.querySelector("#tommorrow_max");
+let tommorowMinTemp = document.querySelector("#tommorrow_min");
+let tommorowConditionImg = document.querySelector("#tommorrow_img");
+let tommorowConditionText = document.querySelector("#tommorrow_comment");
+
+// ==========
+// day after tommorow
+// ==========
+
+let afterTommorowDay = document.querySelector("#after_tommorrow_day");
+let afterTommorowMaxTemp = document.querySelector("#after_tommorrow_max");
+let afterTommorowMinTemp = document.querySelector("#after_tommorrow_min");
+let afterTommorowConditionImg = document.querySelector("#after_tommorrow_img");
+let afterTommorowConditionText = document.querySelector(
+  "#after_tommorrow_comment"
+);
+
+// ===================================================
+// ===================================================
+// ===================================================
+// ===================================================
+// ===================================================
 
 async function getLocations(text) {
   fetch(
@@ -8,7 +65,6 @@ async function getLocations(text) {
   )
     .then((response) => response.json())
     .then((data) => {
-      // Do something with the fetched data
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         console.log(data[i]);
@@ -20,8 +76,7 @@ async function getLocations(text) {
         var command = document.createElement("td");
         var btn = document.createElement("button");
         btn.setAttribute("class", "btn btn-outline-info rounded-5");
-        btn.innerHTML = `Choose ${id}`;
-        //   btn.setAttribute("onclick", console.log(id));
+        btn.innerHTML = `Choose`;
         btn.addEventListener("click", (eventInfo) => {
           getLocationsData(id);
           console.log(id);
@@ -62,6 +117,9 @@ async function getLocationsData(locationId) {
   )
     .then((response) => response.json())
     .then((data) => {
+      clearTable();
+      locationSearch.value = "";
+
       let weather = {
         current: {
           location: data.location.name,
@@ -70,29 +128,67 @@ async function getLocationsData(locationId) {
           wind: data.current.wind_kph,
           windDir: data.current.wind_dir,
           date: data.forecast.forecastday[0].date,
+          day: DAY_NAME_OF_WEEK_LONG[
+            new Date(data.forecast.forecastday[0].date).getDay()
+          ],
           rain: data.forecast.forecastday[0].day.daily_chance_of_rain,
         },
         tommorow: {
           date: data.forecast.forecastday[1].date,
+          day: DAY_NAME_OF_WEEK_LONG[
+            new Date(data.forecast.forecastday[1].date).getDay()
+          ],
           maxTemp: data.forecast.forecastday[1].day.maxtemp_c,
           minTemp: data.forecast.forecastday[1].day.mintemp_c,
           condition: data.forecast.forecastday[1].day.condition,
         },
         dayAfterTommorow: {
           date: data.forecast.forecastday[2].date,
+          day: DAY_NAME_OF_WEEK_LONG[
+            new Date(data.forecast.forecastday[2].date).getDay()
+          ],
           maxTemp: data.forecast.forecastday[2].day.maxtemp_c,
           minTemp: data.forecast.forecastday[2].day.mintemp_c,
           condition: data.forecast.forecastday[2].day.condition,
         },
       };
-      // Do something with the fetched data\
 
-      console.log(weather);
-      // console.log(data);
+      // =======================
+      // today
+      // =======================
+
+      city.textContent = weather.current.location;
+      todayTemp.textContent = weather.current.temp;
+      todayDay.textContent = weather.current.day;
+      todayDate.textContent = weather.current.date;
+      todayConditionImg.src = weather.current.condition.icon;
+      todayConditionText.textContent = weather.current.condition.text;
+      todayRain.textContent = weather.current.rain;
+      todayWind.textContent = weather.current.wind;
+      todayWindDegree.textContent = weather.current.windDir;
+
+      // =======================
+      // tomorrow
+      // =======================
+
+      tommorowDay.textContent = weather.tommorow.day;
+      tommorowMaxTemp.textContent = weather.tommorow.maxTemp;
+      tommorowMinTemp.textContent = weather.tommorow.minTemp;
+      tommorowConditionImg.src = weather.tommorow.condition.icon;
+      tommorowConditionText.textContent = weather.tommorow.condition.text;
+
+      // =======================
+      // the day after tommorow
+      // =======================
+
+      afterTommorowDay.textContent = weather.dayAfterTommorow.day;
+      afterTommorowMaxTemp.textContent = weather.dayAfterTommorow.maxTemp;
+      afterTommorowMinTemp.textContent = weather.dayAfterTommorow.minTemp;
+      afterTommorowConditionImg.src = weather.dayAfterTommorow.condition.icon;
+      afterTommorowConditionText.textContent =
+        weather.dayAfterTommorow.condition.text;
     })
     .catch((error) => {
-      // Handle any errors that occurred during the fetch
       console.error(error);
     });
 }
-// current.rain.day.daily_chance_of_rain;

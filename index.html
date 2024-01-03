@@ -83,49 +83,71 @@
 			</div>
 			<div class="forecast-table">
 				<div class="container">
-					<div class="forecast-container" id="forecast"><div class="today forecast">
+					<div class="forecast-container " id="forecast"><div class="today forecast ">
     <div class="forecast-header" id="today">
-    <div class="day">Monday</div>
-    <div class=" date">1January</div>
+    <div class="day"><span id="today_day">Monday</span></div>
+    <div class=" date"><span id="today_date">1January</span></div>
     </div> 
     <div class="forecast-content" id="current">
-    <div class="location">Cairo</div>
+    <div class="location"><span id="today_city">Cairo</span></div>
     <div class="degree">
-        <div class="display-5 py-3">15.5<sup> o</sup>C</div>
+        <div class="display-5 py-3"><span id="today_temp">15</span><sup> o</sup>C</div>
       
         <div class=" forecast-icon">
-            <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="90">
+            <img id="today_condition_icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="90">
         </div>	
     
     </div>
-    <div class="custom">Sunny</div>
-    <span><img src="./assets/img/icon-umberella.png" alt="">20%</span>
-								<span><img src="./assets/img/icon-wind.png" alt="">18km/h</span>
-								<span><img src="./assets/img/icon-compass.png" alt="">East</span>
+    <div id="today_condition_text" class="custom">Sunny</div>
+
+<div class="icons pt-3 d-flex justify-content-around ">
+  <div class="rain">
+    
+    <img id="rain_icon" src="./assets/img/icon-umberella.png" alt="">
+    
+    <p class="pt-3"><span id="rain_precentage">20</span>%</p>
+  </div>
+
+  <div class="wind">
+    <img id="wind_icon" src="./assets/img/icon-wind.png" alt=""> 
+
+    <p class="pt-3"><span id="wind_speed">18</span>km/h</p>
+    
+  </div>
+
+  <div class="compass">
+    <img id="icon_compass" src="./assets/img/icon-compass.png" alt="">
+
+    <p id="wind_dir" class="pt-3">East</p>
+
+  </div>
+</div>
     </div>
-</div>	<div class="forecast">
+</div>
+	<div class="forecast ">
         <div class="forecast-header">
-            <div class="day">Tuesday</div>
+            <div class="day" id="tommorrow_day">Tuesday</div>
         </div> <!-- .forecast-header -->
         <div class="forecast-content">
             <div class="forecast-icon">
-                <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="48">
+                <img id="tommorrow_img" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="48">
             </div>
-            <div class="degree">21.1<sup> o</sup>C</div>
-            <small>13.9<sup> o</sup></small>
-            <div class="custom">Sunny</div>
+            <div class="degree" id="tommorrow_max">21.1<sup> o</sup>C</div>
+            <small id="tommorrow_min">13.9<sup> o</sup></small>
+            <div class="custom" id="tommorrow_comment">Sunny</div>
         </div>
-        </div>	<div class="forecast">
-        <div class="forecast-header">
-            <div class="day">Wednesday</div>
+        </div>
+        	<div class="forecast">
+        <div class="forecast-header bg-">
+            <div class="day" id="after_tommorrow_day" >Wednesday</div>
         </div> <!-- .forecast-header -->
         <div class="forecast-content">
-            <div class="forecast-icon">
-                <img src="https://cdn.weatherapi.com/weather/64x64/day/122.png" alt="" width="48">
+            <div class="forecast-icon bg">
+                <img id="after_tommorrow_img" src="https://cdn.weatherapi.com/weather/64x64/day/122.png" alt="" width="48">
             </div>
-            <div class="degree">20.5<sup> o</sup>C</div>
-            <small>14.3<sup> o</sup></small>
-            <div class="custom">Overcast</div>
+            <div class="degree" id="after_tommorrow_max">20.5<sup> o</sup>C</div>
+            <small id="after_tommorrow_min">14.3<sup> o</sup></small>
+            <div class="custom" id="after_tommorrow_comment">Overcast</div>
         </div>
         </div></div>
 				</div>
@@ -133,7 +155,7 @@
 	
 			
 
-			<footer class="site-footer">
+			<footer class="site-footer text-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
@@ -144,10 +166,10 @@
 						</div>
 						<div class="col-md-3 col-md-offset-1">
 							<div class="social-links">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-google-plus"></i></a>
-								<a href="#"><i class="fa fa-pinterest"></i></a>
+								<a href="#"><i class="fa fa-brands fa-facebook-f"></i></a>
+								<a href="#"><i class="fa fa-brands fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-brands fa-google-plus"></i></a>
+								<a href="#"><i class="fa fa-brands fa-pinterest"></i></a>
 							</div>
 						</div>
 					</div>
@@ -158,7 +180,7 @@
 		
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>.DAY_NAME_OF_WEEK_LONGEST
     <script src="assets/js/main.js"></script>
 
   </body>
