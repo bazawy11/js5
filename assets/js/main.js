@@ -31,6 +31,7 @@ let todayRain = document.querySelector("#rain_precentage");
 let todayWind = document.querySelector("#wind_speed");
 let todayWindDegree = document.querySelector("#wind_dir");
 
+getLocationsData(9003427);
 // ==========
 // tommorow
 // ==========
