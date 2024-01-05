@@ -1,3 +1,5 @@
+getLocationsData(`id:${9003427}`);
+
 const DAY_NAME_OF_WEEK_LONG = [
   "Sunday",
   "Monday",
@@ -7,6 +9,8 @@ const DAY_NAME_OF_WEEK_LONG = [
   "Friday",
   "Saturday",
 ];
+
+findMyLocation();
 
 const locationSearch = document.querySelector("#location-search");
 const searchTable = document.querySelector("#result-table");
@@ -31,7 +35,6 @@ let todayRain = document.querySelector("#rain_precentage");
 let todayWind = document.querySelector("#wind_speed");
 let todayWindDegree = document.querySelector("#wind_dir");
 
-getLocationsData(9003427);
 // ==========
 // tommorow
 // ==========
@@ -79,7 +82,7 @@ async function getLocations(text) {
         btn.setAttribute("class", "btn btn-outline-info rounded-5");
         btn.innerHTML = `Choose`;
         btn.addEventListener("click", (eventInfo) => {
-          getLocationsData(id);
+          getLocationsData(`id:${id}`);
           console.log(id);
         });
         serial.append(i + 1);
@@ -114,7 +117,7 @@ locationSearch.addEventListener("keyup", (eventInfo) => {
 
 async function getLocationsData(locationId) {
   fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=d0fda70a3b8249b194a72202240101&q=id:${locationId}&days=3`
+    `https://api.weatherapi.com/v1/forecast.json?key=d0fda70a3b8249b194a72202240101&q=${locationId}&days=3`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -192,4 +195,21 @@ async function getLocationsData(locationId) {
     .catch((error) => {
       console.error(error);
     });
+}
+
+function findMyLocation() {
+  const success = (position) => {
+    console.log(position);
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    // getLocationsData(`${latitude},${longitude}`);
+    getLocationsData(`${latitude},${longitude}`);
+  };
+
+  const error = () => {
+    getLocationsData(9003427);
+    console.log("use cairo");
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error);
 }
