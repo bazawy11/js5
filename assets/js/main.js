@@ -208,7 +208,7 @@ function findMyLocation() {
 
   const error = () => {
     getLocationsData(9003427);
-    console.log("use cairo");
+    console.log("use Cairo");
   };
 
   navigator.geolocation.getCurrentPosition(success, error);
